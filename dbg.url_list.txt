@@ -1,0 +1,7 @@
+http://10.0.0.39:80/gate.php
+http://192.168.0.1:80/gate.php
+http://10.0.0.39:80/gate.php
+http://10.0.0.250:80/gate.php
+http://127.0.0.1:80/gate.php
+http://192.168.0.1:80/gate.php
+http://10.0.1.1:80/gate.php

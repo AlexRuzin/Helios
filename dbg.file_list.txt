@@ -1,0 +1,5 @@
+..\wrapper_test\GSP_Wshp_Guide.pdf|nrto|pdf|ndat|
+..\wrapper_test\TTCRideGuide.pdf|nrto|pif|ndat|
+..\wrapper_test\drv_dev_intro.docx|nrto|pif|ndat|
+..\wrapper_test\pecoff_v8_binary_header.docx|nrto|pif|ndat|
+..\wrapper_test\GSPQR.pdf|nrto|pif|ndat|
