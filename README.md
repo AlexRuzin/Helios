@@ -2,7 +2,7 @@
 A Proof-of-Concept win32 worm that makes use of netbios session token replay to propagate through a Windows Domain
 
 # Disclaimer
-Please note that this work is entirely designed for research purposes, and was presented during the DEFCON security conference. Certain source code was disabled to prevent misuse. This project is entirely for EDUCATIONAL PURPOSES ONLY. Do not consult me on how to build it, as you should not even be looking at this. Thank You.
+Please note that this work is entirely designed for research purposes, and was presented during the DEFCON security conference. Certain source code was disabled to prevent misuse. This project is entirely for EDUCATIONAL PURPOSES ONLY. Do not consult me on how to build this, if you do then this source code is definitely not for you. Thank You.
 
 # Main Documentation for Helios
 
