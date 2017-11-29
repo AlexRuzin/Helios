@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="SOURCES">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="RESOURCE">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="HEADERS">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="kpcoe.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="template.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="wrap_gen.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\shared.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="wrap_gen.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CORE32\main.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CORE32\shared.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Wrapper_template_generator.rc">
+      <Filter>RESOURCE</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\_tools\KPCOE\KPCOE.exe">
+      <Filter>RESOURCE</Filter>
+    </None>
+    <None Include="..\_tools\KPCOE\KPCOE.tool.cfg">
+      <Filter>RESOURCE</Filter>
+    </None>
+    <None Include="..\_tools\KPCOE\skeleton.exe">
+      <Filter>RESOURCE</Filter>
+    </None>
+    <None Include="..\Debug\Wrapper_skeleton.exe">
+      <Filter>RESOURCE</Filter>
+    </None>
+  </ItemGroup>
+</Project>
