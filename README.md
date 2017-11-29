@@ -7,46 +7,72 @@ Please note that this work is entirely designed for research purposes, and was p
 # Main Documentation for Helios
 
 1      :Abstract
+
 2        |-Feature summary
 
 3      :Building and Input
+
 4        |-Builder parameters
+
 5        |-Builder output
+
 6        |-URL List format
 
 7      :Local Propagation
+
 8        |-Binary structure
+
 9        |-Injection
+
 10       |-x86 to x64 Injection
+
 11       |-Process Synchronization
 
 12     :Network Discovery
+
 13       |-Passive network scanner
+
 14       |-Dynamic URL detection
 
 15     :Payload
+
 16       |-URL List updating
+
 17       |-Gateway cycling
 
 18     :Intranet Propagation
+
 19        |-Hash Replay
+
 20             |-Algorithm
+
 21             |-NT6.0+ and NT5 Differences
+
 22         |-WMI
+
 23         |-tftp
+
 24         |-Token structures
+
 25             |-NT6.0+ Decryption
+
 26             |-Token Decryption
 
 27      :USB Propagation
+
 28         |-PE Infector
+
 29         |-Wrapper Overview
-30             |-
+
+30             |- N/A
 31             |-Binary Structure
+
 32             |-RTO, datetime and extension mangling
 
 33      :Wrapper Spearphishing Tool
+
 34         |-Command Line
+
 35         |-Packing
 
 ## Release Version: 1.0.0
