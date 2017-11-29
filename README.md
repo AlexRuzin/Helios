@@ -6,12 +6,6 @@ Please note that this work is entirely designed for research purposes, and was p
 
 # Main Documentation for Helios
 
-===================================================================================================
-
-										n0day Worming Engine
-
-===================================================================================================
-
 [0] 	:Abstract
 [0b] 		|-Feature summary
 
