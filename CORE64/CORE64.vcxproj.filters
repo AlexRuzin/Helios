@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="HEADERS">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="RESOURCE">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="SOURCES">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="CONFIG">
+      <UniqueIdentifier>{812940a3-5cff-4ed0-ba16-3a82bcf541c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SOURCES\VECTORS">
+      <UniqueIdentifier>{d9287056-ece7-44b8-b857-7bdab7242849}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="import64_shellcode.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CORE32\config.h">
+      <Filter>CONFIG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CORE32\globals.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CORE32\lsass.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CORE32\main.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CORE32\net.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CORE32\shared.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CORE32\wrapper.h">
+      <Filter>HEADERS</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="import64_shellcode.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="imports64.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="main64.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\crc32.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\debug.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\globals.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\net.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\pid.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\privilege.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\relocate.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\scan.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\shared.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\tftp.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\threads.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\worm.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\wrappers.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\lsass5.c">
+      <Filter>SOURCES\VECTORS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\lsass6.c">
+      <Filter>SOURCES\VECTORS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\usb.c">
+      <Filter>SOURCES\VECTORS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\usb_pe.c">
+      <Filter>SOURCES\VECTORS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\usb_wrapper.c">
+      <Filter>SOURCES\VECTORS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CORE32\wmi.c">
+      <Filter>SOURCES\VECTORS</Filter>
+    </ClCompile>
+    <ClCompile Include="shared64.c">
+      <Filter>SOURCES</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

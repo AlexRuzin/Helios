@@ -1,0 +1,21 @@
+﻿Build started 1/10/2013 1:44:28 PM.
+     1>Project "J:\annas_worm\APOPTOSIS_SHELLCODE\APOPTOSIS_SHELLCODE.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\APOPTOSIS_SHELLCODE.unsuccessfulbuild".
+       _MASM:
+         Assembling [Inputs]...
+         cmd.exe /C "C:\Users\devz\AppData\Local\Temp\7b853b8d77d0421fb13d879d2b04ee5f.cmd"
+         ml.exe /c /nologo /Zi /Fo"Debug\apoptosis.obj" /W3 /errorReport:prompt  /Taapoptosis.asm
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"J:\annas_worm\Debug\APOPTOSIS_SHELLCODE.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\APOPTOSIS_SHELLCODE.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"J:\annas_worm\Debug\APOPTOSIS_SHELLCODE.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"J:\annas_worm\Debug\APOPTOSIS_SHELLCODE.lib" /MACHINE:X86 Debug\apoptosis.obj
+         APOPTOSIS_SHELLCODE.vcxproj -> J:\annas_worm\Debug\APOPTOSIS_SHELLCODE.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"J:\annas_worm\Debug\APOPTOSIS_SHELLCODE.exe;#1" /manifest Debug\APOPTOSIS_SHELLCODE.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\APOPTOSIS_SHELLCODE.unsuccessfulbuild".
+         Touching "Debug\APOPTOSIS_SHELLCODE.lastbuildstate".
+     1>Done Building Project "J:\annas_worm\APOPTOSIS_SHELLCODE\APOPTOSIS_SHELLCODE.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.84
