@@ -929,9 +929,9 @@ RTO:                    testexe.pdf
 This tricks works on all modern Windows OSs, without the need of an Arabic
 or any other non-standard language pack.
 
-#Disclaimer
+#Disclaimer -- FOR REAL
 
-    ALL WORK IS FOR RESEARCH AND EDUCATIONAL PURPOSES ONLY! stan [dot] ruzin [at] gmail [dot] com.
+ALL WORK IS FOR RESEARCH AND EDUCATIONAL PURPOSES ONLY! stan [dot] ruzin [at] gmail [dot] com.
 
-    All work presented in the `HELIOS` source tree has been open sourced using the MIT license. 
-    Please refer to the `LICENSE` file in the root directory.
+All work presented in the `HELIOS` source tree has been open sourced using the MIT license. 
+Please refer to the `LICENSE` file in the root directory.
