@@ -114,25 +114,25 @@ to interface with.
 
 n0day general features. Please refer to [5a] for details on attack vectors.
 
-###Systems Support
+[Systems Support]
 + x86 Support (x64 is planned on next release)
 + Tested on Windows XP (all SPs), Vista, Windows 7 
 + MS Server OS support: Server 2003, Server 2008, Server 2008 R2
 
-###Local Presence:
+[Local Presence]
 + Nothing written to the disks
 + Stealth DLL injection into any process 
 
-###Network Presence:
+[Network Presence]
 + Silent and passive network scanner
 + Propagation via TFTP
 + Optimized to target Domain Controllers (DCs)
 
-###Security:
+[Security]
 + Test for process tampering in memory 
 + Gateway URL list encryption
 
-###Vectors:
+[Vectors]
 + LSA Token Manipulation (nTM)
 + Silent USB infection
 
