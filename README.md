@@ -920,11 +920,13 @@ allows files to be named in Arabic languages. This is especially useful in
 malware, because it tricks the user into thinking the executable is of the
 expected extension. For instance:
 
-    Original document:      test.pdf
-    Original PE:            test.exe
-    RTO:                    testexe.pdf
+```
+Original document:      test.pdf
+Original PE:            test.exe
+RTO:                    testexe.pdf
+```
     
-    This tricks works on all modern Windows OSs, without the need of an Arabic
+This tricks works on all modern Windows OSs, without the need of an Arabic
 or any other non-standard language pack.
 
 #Disclaimer
