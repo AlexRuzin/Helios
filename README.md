@@ -124,7 +124,7 @@ http://y2u.be/U4mVkAWJe4Q
 ### The NTO Token Replication Domain Worm 
 The `NTO` Token replication worm video:
 
-http//y2u.be/YASHp_N1dA0
+http://y2u.be/YASHp_N1dA0
 
 ## Abstract
 ### Feature Summary
