@@ -109,6 +109,23 @@ infection of USB drives without copying any binary payload.
 n0day was built as a part of Corona, so it requires a gateway system
 to interface with.
 
+## Video examples
+
+### RTO Infector
+`n0day2` 64inject wrap right-to-left character exploit: 
+
+https://y2u.be/-C12M9mEq_k
+
+### USB PE infector video
+Wrapper for usb infection: 
+
+https://y2u.be/U4mVkAWJe4Q
+
+### The NTO Token Replication Domain Worm 
+The `NTO` Token replication worm video:
+
+http://y2u.be/YASHp_N1dA0
+
 ## Abstract
 ### Feature Summary
 
